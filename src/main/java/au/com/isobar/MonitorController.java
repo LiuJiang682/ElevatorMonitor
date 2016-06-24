@@ -12,13 +12,13 @@ public class MonitorController {
 
 	@RequestMapping("/")
 	public String index() {
-		LOGGER.info("inside index");
+		LOGGER.info("index called");
 		return "index";
 	}
 	
 	@RequestMapping("/elvMon") 
-	public ModelAndView elevator1() {
-		LOGGER.info("inside elevator1");
+	public ModelAndView elevatorMonitor() {
+		LOGGER.info("elevatorMonitor called");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		String str = "Hello World1!";
