@@ -6,14 +6,16 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import au.com.isobar.model.ElevatorStatus;
 import au.com.isobar.services.MonitorService;
 
-@Controller
+@RestController
 public class MonitorController {
 
 	private static final Logger LOGGER = Logger.getLogger(MonitorController.class);
@@ -27,9 +29,11 @@ public class MonitorController {
 	private MonitorService monitorService;
 	
 	@RequestMapping("/")
-	public String index() {
+	public ModelAndView index() {
 		LOGGER.info("index called");
-		return "index";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
 	}
 	
 	@RequestMapping("/elvMon") 
@@ -39,14 +43,18 @@ public class MonitorController {
 		mav.setViewName("index");
 		
 		List<ElevatorStatus> messages = new ArrayList<>();
-//		messages.add(new ElevatorStatus("up", "2", "locked"));
-//		messages.add(new ElevatorStatus("Down", "3", "unlock"));
-		LOGGER.warn("monitorService " + monitorService);
 		
 		messages.add(monitorService.getElevatorStatus(FIRST));
 		messages.add(monitorService.getElevatorStatus(SECOND));
 		mav.addObject("messages", messages);
 		return mav;
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST) 
+	public String update(@RequestBody ElevatorStatus status) {
+		LOGGER.info("update called with " + status);
+		boolean success = monitorService.update(status);
+		return success ? "Ok" : "Fail";
 	}
 
 }

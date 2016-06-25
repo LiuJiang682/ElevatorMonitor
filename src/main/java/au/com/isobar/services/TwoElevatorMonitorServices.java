@@ -4,11 +4,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -51,8 +49,6 @@ public class TwoElevatorMonitorServices implements MonitorService {
     private String fileName;
 	
 	private File file;
-	
-	private List<ElevatorStatus> status;
 	
 	@PostConstruct
 	public void init() { 
@@ -117,6 +113,7 @@ public class TwoElevatorMonitorServices implements MonitorService {
 		return this.fileName;
 	}
 
+	@Override
 	public boolean update(ElevatorStatus status) {
 		boolean success = false;
 		boolean updated = false;

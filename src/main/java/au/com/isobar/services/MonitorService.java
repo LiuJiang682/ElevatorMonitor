@@ -5,5 +5,6 @@ import au.com.isobar.model.ElevatorStatus;
 public interface MonitorService {
 
 	ElevatorStatus getElevatorStatus(int first);
+	boolean update(ElevatorStatus status);
 
 }
