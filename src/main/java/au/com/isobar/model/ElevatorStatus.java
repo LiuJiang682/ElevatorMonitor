@@ -13,16 +13,24 @@ public class ElevatorStatus implements Serializable {
 	 */
 	private static final long serialVersionUID = 6837956163441524420L;
 	
+	private String liftId;
 	private String moving;
 	private String floor;
 	private String lockStatus;
 	
-	public ElevatorStatus(final String moving, final String floor, final String lockStatus) {
+	public ElevatorStatus(final String liftId,
+			final String moving, 
+			final String floor, 
+			final String lockStatus) {
+		this.liftId = liftId;
 		this.moving = moving;
 		this.floor = floor;
 		this.lockStatus = lockStatus;
 	}
 
+	public String getLiftId() {
+		return liftId;
+	}
 	public String getMoving() {
 		return moving;
 	}

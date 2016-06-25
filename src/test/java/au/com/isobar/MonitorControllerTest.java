@@ -66,7 +66,7 @@ public class MonitorControllerTest {
 	@Test
 	public void whenelvMonURLEnteredThen2MessageShouldReturn() {
 		//Given the app started and mock services
-		when(mockService.getElevatorStatus(Matchers.anyInt())).thenReturn(new ElevatorStatus("", "", ""));
+		when(mockService.getElevatorStatus(Matchers.anyInt())).thenReturn(new ElevatorStatus("","", "", ""));
 		//When the user enter http://localhost:8080/elvMon
 		ModelAndView mav = controller.elevatorMonitor();
 		//Then 2 message should be return

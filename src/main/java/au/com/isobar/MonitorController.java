@@ -41,6 +41,7 @@ public class MonitorController {
 		List<ElevatorStatus> messages = new ArrayList<>();
 //		messages.add(new ElevatorStatus("up", "2", "locked"));
 //		messages.add(new ElevatorStatus("Down", "3", "unlock"));
+		LOGGER.warn("monitorService " + monitorService);
 		
 		messages.add(monitorService.getElevatorStatus(FIRST));
 		messages.add(monitorService.getElevatorStatus(SECOND));
