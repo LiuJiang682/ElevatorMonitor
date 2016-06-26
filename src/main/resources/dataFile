@@ -1,2 +1,2 @@
-Id=0,moving=up,floor=3,lockStatus=lock
-Id=1,moving=down,floor=2,lockStatus=unlock
+Id=0,moving=down,floor=5,lockStatus=unlock
+Id=1,moving=up,floor=1,lockStatus=lock

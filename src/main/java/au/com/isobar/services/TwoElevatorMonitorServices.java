@@ -57,6 +57,10 @@ public class TwoElevatorMonitorServices implements MonitorService {
 		}
 		try {
 			file = new File(this.fileName); 
+			LOGGER.warn("File path: " + file.getAbsolutePath());
+			if (!file.exists()) {
+				file.createNewFile();
+			}
 		}
 		catch (Exception e) {
 			throw new UnsupportedOperationException(e.getMessage(), e);

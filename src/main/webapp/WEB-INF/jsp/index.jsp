@@ -77,7 +77,7 @@
     </div>
 
     <div style="text-align: center">
-        <button onclick="location.href='http://localhost:8080/elvMon'">
+        <button onclick="location.href='http://localhost:8080/ElevatorMonitor-0.0.1-SNAPSHOT/elvMon'">
             <spring:message code="status.refresh" />
         </button>
     </div>

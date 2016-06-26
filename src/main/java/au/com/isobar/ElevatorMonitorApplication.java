@@ -2,11 +2,16 @@ package au.com.isobar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class ElevatorMonitorApplication {
+public class ElevatorMonitorApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ElevatorMonitorApplication.class);
+    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(ElevatorMonitorApplication.class, args);
